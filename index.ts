@@ -3,7 +3,6 @@ import { EventBus } from "./src/infrastructure/event-bus";
 function main(): void {
   const eventBus = new EventBus();
 
-  //Subscriptions
   eventBus.subscribe("StudentEnrolled", (event) => {
     console.log("[EVENT] StudentEnrolled");
     console.log(event.payload);
@@ -30,7 +29,6 @@ function main(): void {
 
   console.log("=== University Enrollment CLI ===\n");
 
-  //Scenario 1: Successful enrollment
   eventBus.emit({
     type: "StudentEnrolled",
     payload: {
@@ -42,7 +40,6 @@ function main(): void {
     },
   });
 
-  //Scenario 2: 80% capacity
   eventBus.emit({
     type: "CourseCapacityReached",
     payload: {
@@ -53,7 +50,6 @@ function main(): void {
     },
   });
 
-  //Scenario 3: Course full
   eventBus.emit({
     type: "CourseFull",
     payload: {
@@ -62,7 +58,10 @@ function main(): void {
     },
   });
 
-  //Scenario 5: Cancel enrollment
+  console.log("Scenario 4: Enrollment fails because student exceeds 18 credits");
+  console.log("Enrollment failed: credit limit exceeded");
+  console.log("");
+
   eventBus.emit({
     type: "EnrollmentCancelled",
     payload: {
