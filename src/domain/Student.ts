@@ -2,7 +2,7 @@ import { StudentId, Email, Credits } from "./brandedTypes.ts";
 
 export class Student {
     //  private properties so nobody can break the invariants
-  private _id: StudentId;
+  private _id: StudentId; // entity identity
   private _name: string;
   private _email: Email;
   private _enrolledCredits: number;
