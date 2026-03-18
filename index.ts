@@ -61,7 +61,9 @@ function main(): void {
     },
   });
 
-  console.log("Scenario 4: Enrollment fails because student exceeds 18 credits");
+  console.log(
+    "Scenario 4: Enrollment fails because student exceeds 18 credits",
+  );
   console.log("Enrollment failed: credit limit exceeded");
   console.log("");
 
